@@ -60,7 +60,7 @@ And add this line to your Jekyll site's `_config.yml`:
 theme: jekyll-theme-nix
 ```
 
-Make sure that this is the only `theme:` in `_config.yml`.
+Make sure that this is the only `theme:` in `_config.yml`. Afterwards run `bundle update`.
 
 ### Installation as Remote Theme
 
