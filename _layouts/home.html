@@ -1,0 +1,24 @@
+---
+layout: default
+---
+<header>
+    <h1><a rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+  </header>
+  <main aria-label="Content" itemscope itemtype="https://schema.org/Blog">
+    {{ content }}
+
+    {%- if site.posts.size > 0 -%}
+      {%- if page.list_title %}
+    <h2>{{ page.list_title | smartify }}</h2>
+      {%- endif -%}
+      {%- assign date_format = site.date_format | default: "%b %-d, %Y" %}
+    <ul>
+      {%- for post in site.posts %}
+      <li itemscope itemtype="https://schema.org/BlogPosting">
+        <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: date_format }}</time>
+        <a href="{{ post.url | relative_url }}" itemprop="headline">{{ post.title | smartify }}</a>
+      </li>
+      {%- endfor %}
+    </ul>
+    {%- endif %}
+  </main>

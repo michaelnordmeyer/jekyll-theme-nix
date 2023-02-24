@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/webp" href="{{ '/icon.webp' | relative_url }}">
+  <style>
+    html {
+      max-width: 43rem;
+      margin: 0 auto;
+      padding: 1em;
+      font: 1rem / 1.5 sans-serif;
+    }
+    body { margin: 0; }
+    img, table { margin: 0 auto; }
+    table { border-collapse: collapse; }
+    th, td { padding: 0.25em; border: 1px solid lightgrey; }
+    img { display: block; max-width: 100%; height: auto; }
+    figure { margin: 0; text-align: center; font-size: small; }
+    blockquote { margin: 1em 1.5em 1em 0.5em; padding-left: 1em; border-left: 1px solid lightgrey; }
+    code { font-size: 1.125em; }
+    sub, sup { line-height: 0; }
+    hr { border: 0; border-top: 1px solid; }
+    body > header > h1 { margin-bottom: 2rem; text-align: center; }
+    body > main > ul { padding: 0; }
+    body > main > ul > li { margin: 0.5em 0; list-style-type: none; line-height: 1.25em; }
+    body > main > ul > li time { font-size: small; }
+    body > header > a { display: block; margin-block-start: 0.67em; margin-block-end: 1em;text-align: center; font-size: 2rem; font-weight: bold; }
+    article > header { margin-bottom: 2rem; }
+    article > header > h1 { margin-bottom: 0; }
+    article h1 { margin-bottom: 1rem; font-size: 2rem; }
+    header > time { display: block; color: grey; }
+    @media (prefers-color-scheme: dark) {
+      html { background-color: black; color: white; }
+      a { color: lightskyblue; }
+      a:visited { color: plum; }
+      header > time { color: darkgrey; }
+      th, td { border-color: grey; }
+    }
+    .footnotes { margin: 0; font-size: small; }
+    .footnotes ol { padding-inline-start: 30px; }
+  </style>
+  <meta name="theme-color" content="#white">
+  <title>{%- if page.title -%}{{ page.title | smartify }} • {{ site.title | smartify }}{%- else -%}{{ site.title | smartify }} • {{ site.description | smartify }}{%- endif -%}</title>
+  <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | smartify }}{% else %}{{ site.description | smartify }}{% endif %}">
+  <meta name="author" content="{{ site.author.name }}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <link type="application/atom+xml" rel="alternate" href="{{ '/feed.xml' | relative_url }}" title="{{ site.title | smartify }}">
+</head>
+<body>
+  {{ content }}
+</body>
+</html>

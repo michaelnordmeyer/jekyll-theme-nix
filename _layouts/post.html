@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<header>
+    <a rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  </header>
+  <main aria-label="Content">
+    <article itemscope itemtype="https://schema.org/BlogPosting">
+      <header>
+        <h1 itemprop="headline">{{ page.title | smartify }}</h1>
+        {%- assign date_format = site.date_format | default: "%b %-d, %Y" %}
+        <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: date_format }}</time>
+      </header>
+      <div itemprop="articleBody">
+        {{ content }}
+      </div>
+    </article>
+  </main>

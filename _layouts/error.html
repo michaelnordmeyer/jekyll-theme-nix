@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/webp" href="{{ '/icon.webp' | relative_url }}">
+  <style>
+    html {
+      max-width: 43rem;
+      margin: 0 auto;
+      padding: 1em;
+      font: 1rem / 1.5 sans-serif;
+    }
+    body { margin: 0; }
+    body > header > a { display: block; margin-block-start: 0.67em; margin-block-end: 1em;text-align: center; font-size: 2rem; font-weight: bold; }
+    article > header { margin-bottom: 2rem; }
+    article > header > h1 { margin-bottom: 0; }
+    article h1 { margin-bottom: 1rem; font-size: 2rem; }
+    @media (prefers-color-scheme: dark) {
+      html { background-color: black; color: white; }
+      a { color: lightskyblue; }
+      a:visited { color: plum; }
+    }
+  </style>
+  <meta name="theme-color" content="#white">
+  <title>{%- if page.title -%}{{ page.title | smartify }}{%- else -%}{{ site.title | smartify }}{%- endif -%}</title>
+  <meta name="description" content="Error page">
+  <meta name="robots" content="noindex,follow">
+</head>
+<body>
+  <header>
+    <a rel="author" href="{{ '/' | relative_url }}">{{ site.title }}</a>
+  </header>
+  <main aria-label="Content">
+    <article itemscope itemtype="https://schema.org/WebPage">
+      <header>
+        <h1 itemprop="headline">{{ page.title | smartify }}</h1>
+      </header>
+      <div itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
+        {{ content }}
+      </div>
+    </article>
+  </main>
+</body>
+</html>
