@@ -8,12 +8,12 @@ layout: post
 
 These are the supported HTML tags, which will be generated from Markdown.
 
-# Heading one
-## Heading two
-### Heading three
-#### Heading four
-##### Heading five
-###### Heading six
+# Heading One
+## Heading Two
+### Heading Three
+#### Heading Four
+##### Heading Five
+###### Heading Six
 
 ### Paragraphs
 
