@@ -64,7 +64,7 @@ And add this line to your Jekyll site's `_config.yml`:
 theme: jekyll-theme-nix
 ```
 
-Make sure that this is the only `theme:` in `_config.yml`. Afterwards run `bundle update`.
+Make sure that this is the only `theme:` in `_config.yml`. Afterwards run `bundle install`.
 
 ### Installation as Remote Theme
 
@@ -83,3 +83,9 @@ remote_theme: michaelnordmeyer/jekyll-theme-nix
 Make sure that this is the only `remote_theme:` in `_config.yml`, and that there are no other `theme:`.
 
 Finally, add `jekyll-remote-theme` to your plugin section in `_config.yml` as well.
+
+## Feed.xml and Sitemap.xml
+
+Both are included in the theme and don't need dependencies to `jekyll-feed` or `jekyll-sitemap`. For a standard Jekyll installation, they work out-of-the-box.
+
+If hosted with the Github pages plugin, those plugins are already included and will automatically be used instead. To overwrite this, both files have to be copied manually from the theme's repository root to the site's repository root.
