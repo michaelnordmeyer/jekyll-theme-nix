@@ -1,5 +1,7 @@
 ## Remove URL for Github Pages
 url: https://jekyll-theme-nix.michaelnordmeyer.com
+icon: /icon.webp
+icon_type: image/webp
 title: Jekyll Theme Nix
 author:
   name: Michael Nordmeyer
@@ -8,7 +10,7 @@ description: "A barebones theme for Jekyll"
 
 timezone: Europe/Berlin
 ignore_theme_config: true
-exclude: [CNAME, Gemfile, Gemfile.lock, LICENSE, README.md]
+exclude: [jekyll-theme-nix*, LICENSE, README.md]
 date_format: "%Y-%m-%d"
 
 plugins:

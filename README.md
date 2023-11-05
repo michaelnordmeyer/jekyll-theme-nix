@@ -8,7 +8,7 @@ It also changes as little as possible from the default browser settings to impro
 
 [Demo](https://jekyll-theme-nix.michaelnordmeyer.com/)
 
-If this theme feels to bloated to you, you can try [<q>Nixer</q>](https://github.com/michaelnordmeyer/jekyll-theme-nixer), the ultra-minimalistic version of <q>Nix</q>.
+If this theme feels to bloated to you, you can try [“Nixer”](https://github.com/michaelnordmeyer/jekyll-theme-nixer), the ultra-minimalistic version of “Nix”.
 
 ## Limited Features
 
@@ -42,9 +42,9 @@ The favicon is currently `icon.webp` for the light mode, and there's also a dark
 
 ### Nix?
 
-<q>Nix</q> is the grammatically incorrect form of the German <q>nichts</q>, which in English means <q>nothing</q>. It's colloquially used to stress the nothingness.
+“Nix” is the grammatically incorrect form of the German “nichts”, which in English means “nothing”. It's colloquially used to stress the nothingness.
 
-Or, if you will, it could be UNIX without the <q>U</q>, because of the theme's somewhat archaic properties.
+Or, if you will, it could be UNIX without the “U”, because of the theme's somewhat archaic properties.
 
 ## Installation
 
