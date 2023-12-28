@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="{{ site.icon_type }}" href="{{ site.icon | relative_url }}">
+  <link rel="icon" type="{{ site.icon_type }}" media="(prefers-color-scheme: light)" href="{{ site.icon | relative_url }}">
+  <link rel="icon" type="{{ site.icon_type }}" media="(prefers-color-scheme: dark)" href="{{ site.icon_dark | relative_url }}">
   <style>
     :root { color-scheme: light dark; }
     html {

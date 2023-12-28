@@ -1,6 +1,7 @@
 ## Remove URL for Github Pages
 url: https://jekyll-theme-nix.michaelnordmeyer.com
 icon: /icon.webp
+icon_dark: /icon-dark.webp
 icon_type: image/webp
 title: Jekyll Theme Nix
 author:
