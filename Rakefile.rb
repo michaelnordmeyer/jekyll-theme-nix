@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ## Deployment settings
-artefact = "jekyll-theme-nix"
+artefact = `basename ${PWD}`
 domain = "#{artefact}.michaelnordmeyer.com"
 ssh_domain = "michaelnordmeyer.com"
 ssh_port = 1111
@@ -39,4 +39,28 @@ desc "Gzips the site via SSH"
 task :gzip do
   puts "==> Gzip'ing #{domain} via SSH..."
   system "ssh -p #{ssh_port} #{ssh_user}@#{ssh_domain} 'for file in $(find #{ssh_path} -type f -name \"*.html\" -o -name \"*.css\" -o -name \"*.css.map\" -o -name \"*.js\" -o -name \"*.svg\" -o -name \"*.xml\" -o -name \"*.xslt\" -o -name \"*.json\" -o -name \"*.txt\"); do printf . && gzip -kf \"${file}\"; done; echo'"
+end
+
+desc "Builds the gem"
+task :gembuild do
+  puts "==> Building gem #{artefact}..."
+  system "gem build #{artefact}.gemspec"
+end
+
+desc "Installs the local gem, needs version number like `rake geminstall\[1.0.0\]`"
+task :geminstall, [:version] do |task, args|
+  puts "==> Installing local gem #{artefact}-#{args[:version]}.gem..."
+  system "gem install --local #{artefact}-#{args[:version]}.gem"
+end
+
+desc "Uninstalls the local gem"
+task :gemuninstall do
+  puts "==> Uninstalling local gem #{artefact}..."
+  system "gem uninstall #{artefact}"
+end
+
+desc "Pushes the gem to rubygems.org, needs version number like `rake gempush\[1.0.0\]`"
+task :gempush, [:version] do |task, args|
+  puts "==> Pushing gem #{artefact}-#{args[:version]}.gem to rubygems.org..."
+  system "gem push #{artefact}-#{args[:version]}.gem"
 end
