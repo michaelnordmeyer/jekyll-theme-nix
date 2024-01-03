@@ -48,7 +48,9 @@ Or, if you will, it could be UNIX without the “U”, because of the theme's so
 
 ## Installation
 
-Installation from Gem is recommended, but using a remote theme is also possible, even though it will increase build time a little, depending on your internet connection.
+Installation from Gem is recommended, but using a remote theme is also possible, even though it will increase build time a little, depending on your internet connection, because the theme will be downloaded during each build. Gems are installed locally.
+
+GitHub pages gem users need to use the remote theme method.
 
 ### Installation from Gem
 
@@ -64,7 +66,7 @@ And add this line to your Jekyll site's `_config.yml`:
 theme: jekyll-theme-nix
 ```
 
-Make sure that this is the only `theme:` in `_config.yml`. Afterwards run `bundle install`.
+Make sure that this is the only `theme:` in `_config.yml`, and that there are no other `remote-theme:`. Afterwards run `bundle install`, and `bundle update` to update it, if there's a new version.
 
 ### Installation as Remote Theme
 
