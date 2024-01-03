@@ -1,23 +1,42 @@
 ## Remove URL for Github Pages
 url: https://jekyll-theme-nix.michaelnordmeyer.com
-icon: /icon.webp
-icon_dark: /icon-dark.webp
-icon_type: image/webp
 title: Jekyll Theme Nix
 author:
   name: Michael Nordmeyer
   uri: https://jekyll-theme-nix.michaelnordmeyer.com
 description: "A barebones theme for Jekyll"
 
-timezone: Europe/Berlin
-ignore_theme_config: true
-exclude: [jekyll-theme-nix*, LICENSE, README.md]
-date_format: "%Y-%m-%d"
-
 plugins:
   - jekyll-include-cache
   # - jekyll-redirect-from
 
 ## Jekyll build settings
+exclude: [jekyll-theme-nix*, LICENSE, Rakefile.rb, README.md]
+ignore_theme_config: true # Since Jekyll 4.0, see: https://jekyllrb.com/docs/themes/#pre-configuring-theme-gems40, https://jekyllrb.com/docs/configuration/options/
 kramdown:
   show_warnings: true
+  syntax_highlighter_opts:
+    disable: true
+liquid:
+  # Configure Liquid’s parser
+  error_mode: strict # default: warn
+  # Configure Liquid’s renderer
+  strict_filters: true # default: false
+  # strict_variables: true # default: false
+sass:
+  style: compressed
+strict_front_matter: true # default: false
+timezone: Europe/Berlin # default: local timezone
+# remote_theme: michaelnordmeyer/jekyll-theme-nix
+# theme: jekyll-theme-nix
+
+## Custom theme settings to not overwrite anything from Jekyll or plugins
+lang: en-US # default: en (is not by Jekyll, but used by many other plugins)
+theme_settings:
+  # date_format: "%b %-d, %Y" # default: "%Y-%m-%d"
+  favicon: /icon.webp # optional, needs to be 180x180
+  favicon_dark: /icon-dark.webp # optional, needs to be 180x180
+  favicon_media_type: image/webp # mandatory, if favicon is set
+  feed:
+    posts_limit: 999
+  # title_separator: "|" # default: "•"

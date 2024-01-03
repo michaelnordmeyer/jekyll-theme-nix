@@ -4,25 +4,24 @@ sitemap: false
 layout: none
 ---
 <?xml version="1.0" encoding="utf-8"?>
-{% if page.xsl %}
-<?xml-stylesheet type="text/xml" href="{{ '/feed.xslt' | absolute_url }}"?>
-{% endif %}
-<feed xmlns="http://www.w3.org/2005/Atom" {% if site.lang %}xml:lang="{{ site.lang }}"{% endif %}>
+<?xml-stylesheet type="text/xml" href="{{ '/feed.xslt.xml' | absolute_url }}"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="{{ site.lang | default: 'en-US' }}">
   <link href="{{ page.url | absolute_url }}" rel="self" type="application/atom+xml" />
-  <link href="{{ '/' | absolute_url }}" rel="alternate" type="text/html" {% if site.lang %}hreflang="{{ site.lang }}" {% endif %}/>
+  <link href="{{ '/' | absolute_url }}" rel="alternate" type="text/html" hreflang="{{ site.lang | default: 'en-US' }}" />
   <updated>{{ site.time | date_to_xmlschema }}</updated>
   <id>{{ page.url | absolute_url | xml_escape }}</id>
-  {%- if site.icon %}
-  <icon>{{ site.icon | absolute_url | xml_escape }}</icon>
+  {%- if site.theme_settings.favicon %}
+  <icon>{{ site.theme_settings.favicon | absolute_url | xml_escape }}</icon>
   {%- endif -%}
   {%- assign title = site.title | default: site.name -%}
+  {%- assign title_separator = site.theme_settings.title_separator | default: '•' -%}
   {%- if page.collection and page.collection != "posts" -%}
     {%- assign collection = page.collection | capitalize -%}
-    {%- assign title = title | append: site.title_separator | append: collection -%}
+    {%- assign title = title | append: title_separator | append: collection -%}
   {%- endif -%}
   {%- if page.category -%}
      {%- assign category = page.category | capitalize -%}
-    {%- assign title = title | append: site.title_separator | append: category -%}
+    {%- assign title = title | append: title_separator | append: category -%}
   {%- endif -%}
   {%- if title %}
   <title>{{ title | strip_html | normalize_whitespace | smartify }}</title>
@@ -30,14 +29,14 @@ layout: none
   {%- if site.description %}
   <subtitle>{{ site.description | strip_html | normalize_whitespace | smartify }}</subtitle>
   {%- endif -%}
-  {%- if site.author %}
+  {%- if site.theme_settings.author %}
   <author>
-    <name>{{ site.author.name | default: site.author | xml_escape }}</name>
-    {%- if site.author.email %}
-    <email>{{ site.author.email | xml_escape }}</email>
+    <name>{{ site.theme_settings.author.name | xml_escape }}</name>
+    {%- if site.theme_settings.author.email %}
+    <email>{{ site.theme_settings.author.email | xml_escape }}</email>
     {%- endif -%}
-    {%- if site.author.uri %}
-    <uri>{{ site.author.uri | xml_escape }}</uri>
+    {%- if site.theme_settings.author.uri %}
+    <uri>{{ site.theme_settings.author.uri | xml_escape }}</uri>
     {%- endif %}
   </author>
   {%- endif -%}
@@ -58,7 +57,7 @@ layout: none
     {%- assign posts = posts | where_exp: "post", "post.draft != true" -%}
   {%- endunless -%}
   {%- assign posts = posts | sort: "date" | reverse -%}
-  {%- assign posts_limit = site.feed.posts_limit | default: 10 -%}
+  {%- assign posts_limit = site.theme_settings.feed.posts_limit | default: 10 -%}
   {%- for post in posts limit: posts_limit %}
   <entry{% if post.lang %}{{" "}}xml:lang="{{ post.lang }}"{% endif %}>
     {%- assign post_title = post.title | strip_html | normalize_whitespace | smartify %}
@@ -68,7 +67,7 @@ layout: none
     <updated>{{ post.last_modified_at | default: post.date | date_to_xmlschema }}</updated>
     <id>{{ post.id | absolute_url | xml_escape }}</id>
 
-    {%- assign post_author = post.author | default: post.authors[0] | default: site.author -%}
+    {%- assign post_author = post.author | default: post.authors[0] | default: site.theme_settings.author -%}
     {%- assign post_author = site.data.authors[post_author] | default: post_author -%}
     {%- assign post_author_email = post_author.email | default: nil -%}
     {%- assign post_author_uri = post_author.uri | default: nil -%}
@@ -107,7 +106,7 @@ layout: none
     <media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="{{ post_image | xml_escape }}" />
     <media:content xmlns:media="http://search.yahoo.com/mrss/" url="{{ post_image | xml_escape }}" medium="image" />
     {%- endif -%}
-    {%- assign excerpt_only = post.feed.excerpt_only | default: site.feed.excerpt_only -%}
+    {%- assign excerpt_only = post.feed.excerpt_only | default: site.theme_settings.feed.excerpt_only -%}
     {%- unless excerpt_only %}
     <content type="html" xml:base="{{ post.url | absolute_url | xml_escape }}"><![CDATA[{{ post.content | smartify }}]]></content>
     {%- endunless %}

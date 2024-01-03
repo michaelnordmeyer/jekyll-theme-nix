@@ -85,7 +85,7 @@ The image tag will show the image of `icon.webp`, if it exists:
 
 This tag was generated from Markdown's code fencing (```) with no specific syntax:
 
-```
+```css
 .header {
   margin: 2em 0;
   font-size: 36px;
@@ -102,7 +102,7 @@ This tag shows **bold** text.
 
 ## HTML5 Tags Supported by Github-Flavored Markdown
 
-### Tables (But Without the Caption)
+### Tables (Without Caption)
 
 | Character                                                                      | Appearance |
 | ------------------------------------------------------------------------------ | ----------:|
@@ -116,7 +116,7 @@ This tag will let you ~~strikeout~~ text.
 
 ### Footnotes
 
-Footnotes[^1] are not tags and therefore don’t belong to the HTML standard.
+Footnotes[^1] are not tags and therefore don’t belong to the HTML standard. Yet some Markdown parsers support them.
 
 ---
 

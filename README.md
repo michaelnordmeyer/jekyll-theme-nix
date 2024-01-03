@@ -15,11 +15,11 @@ If this theme feels to bloated to you, you can try [“Nixer”](https://github.
 - Dark mode, because we want to be respectful
 - Posts
 - Pages, including custom error pages
-- No visible authors, categories, or tags
+- No visible authors, categories, or tags on posts and pages
 - No header or footer
 - No pagination for the home page
 - A feed.xml containing an Atom feed, but no JSON or outdated RSS feeds
-- A sitemap.xml, because search engines should index us
+- A sitemap.xml, because search engines should index us properly
 - No semantic info like Open Graph, Twitter cards, or JSON-LD, but inline Microdata
 
 ## Minutiae
@@ -86,6 +86,8 @@ Finally, add `jekyll-remote-theme` to your plugin section in `_config.yml` as we
 
 ## Feed.xml and Sitemap.xml
 
-Both are included in the theme and don't need dependencies to `jekyll-feed` or `jekyll-sitemap`. For a standard Jekyll installation, they work out-of-the-box.
+Both are included in the theme and don't need dependencies to `jekyll-feed` and `jekyll-sitemap` plugins. For a standard Jekyll installation, they work out-of-the-box if both files are copied to the Jekyll directory.
 
 If hosted with the Github pages plugin, those plugins are already included and will automatically be used instead. To overwrite this, both files have to be copied manually from the theme's repository root to the site's repository root.
+
+Because feeds are generated once, they can only support one icon, which why the light variant was chosen.
