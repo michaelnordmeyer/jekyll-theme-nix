@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-nix"
-  spec.version       = "1.1.0"
+  spec.version       = "1.1.1"
   spec.authors       = ["Michael Nordmeyer"]
   spec.email         = ["michaelnordmeyer@users.noreply.github.com"]
 
@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/michaelnordmeyer/jekyll-theme-nix"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_data|_layouts|_includes|_sass|LICENSE|README|_config\.yml)!i) }
+  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_data|_layouts|_includes|_sass|(CODE_OF_CONDUCT|LICENSE|README)((\.(txt|md|markdown)|$))|_config\.yml)!i) }
 
   spec.add_runtime_dependency "jekyll", ">= 3.9.3", "< 5.0"
   spec.add_runtime_dependency "jekyll-include-cache", "~> 0.2.1"

@@ -8,6 +8,8 @@ It also changes as little as possible from the default browser settings to impro
 
 [Demo](https://jekyll-theme-nix.michaelnordmeyer.com/)
 
+![Screenshot](/screenshot.png)
+
 If this theme feels to bloated to you, you can try [“Nixer”](https://github.com/michaelnordmeyer/jekyll-theme-nixer), the ultra-minimalistic version of “Nix”.
 
 ## Limited Features
@@ -67,6 +69,10 @@ theme: jekyll-theme-nix
 ```
 
 Make sure that this is the only `theme:` in `_config.yml`, and that there are no other `remote-theme:`. Afterwards run `bundle install`, and `bundle update` to update it, if there's a new version.
+
+```sh
+bundle install
+```
 
 ### Installation as Remote Theme
 

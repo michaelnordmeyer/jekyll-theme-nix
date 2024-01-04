@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ## Deployment settings
-artefact = `basename ${PWD}`
+artefact = "jekyll-theme-nix"
 domain = "#{artefact}.michaelnordmeyer.com"
 ssh_domain = "michaelnordmeyer.com"
 ssh_port = 1111
