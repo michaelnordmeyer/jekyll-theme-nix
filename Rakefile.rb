@@ -25,7 +25,7 @@ end
 desc "Deploys the content of ./_site to the server via rsync"
 task :rsync do
   puts "==> Rsyncing #{domain}'s content to SSH host #{ssh_domain}"
-  system "rsync -e 'ssh -p 1111' -vrlptDSWhP --delete --rsync-path 'sudo -u root rsync' --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r \
+  system "rsync -e 'ssh -p 1111' -vcrlptDSWhP --delete --rsync-path 'sudo -u root rsync' --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r \
     --exclude=.DS_Store \
     --exclude=._* \
     --exclude=.git \
