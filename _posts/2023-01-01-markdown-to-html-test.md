@@ -29,13 +29,10 @@ Another paragraph with more text to show, how the paragraph spacing is done. Not
     - List item one
     - List item two
     - List item three
-    - List item four
   - List item two
   - List item three
-  - List item four
 - List item two
 - List item three
-- List item four
 
 #### Ordered List (Nested)
 
@@ -44,13 +41,10 @@ Another paragraph with more text to show, how the paragraph spacing is done. Not
       1. List item one
       2. List item two
       3. List item three
-      4. List item four
    2. List item two
    3. List item three
-   4. List item four
 2. List item two
 3. List item three
-4. List item four
 
 ### Anchor Tag (aka Link)
 
@@ -82,7 +76,7 @@ The image tag will show the image of `icon.webp`, if it exists:
 
 ### Pre-Formatted Tag
 
-This tag was generated from Markdown's code fencing (```) with no specific syntax:
+This tag was generated from Markdown's code fencing (```) with CSS syntax:
 
 ```css
 .header {
@@ -119,6 +113,5 @@ This tag will let you ~~strikeout~~ text.
 
 Footnotes[^1] are not tags and therefore don’t belong to the HTML standard. Yet some Markdown parsers support them.
 
----
 
 [^1]: You can go back to the place, where the `footnote` was made.
