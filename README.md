@@ -40,7 +40,7 @@ Therefore, they're set to somewhat lighter versions of the default colors:
 
 ### Favicon
 
-The favicon is currently `icon.webp` for the light mode, and there's also a dark variant `icon-dark.webp`.
+`icon.webp` is the favicon for the light mode, and there's also a dark variant `icon-dark.webp` for dark mode. If you want to use them, these files have to be copied manually from the demo's repository root to your site's repository root.
 
 ### Nix?
 
@@ -50,39 +50,47 @@ Or, if you will, it could be UNIX without the “U”, because of the theme's so
 
 ## Installation
 
-Installation from Gem is recommended, but using a remote theme is also possible, even though it will increase build time a little, depending on your internet connection, because the theme will be downloaded during each build. Gems are installed locally.
+Installation from Gem is recommended, but using a remote theme is also possible, even though it will increase build times a little, depending on your internet connection and the size of the theme download, because it will be downloaded during each build. Gems are installed locally.
 
-GitHub pages gem users need to use the remote theme method.
+GitHub Pages gem users need to use the remote theme method.
 
 ### Installation from Gem
 
 Add this line to your Jekyll site's `Gemfile`:
 
 ```ruby
-gem "jekyll-theme-nix"
+gem "jekyll-theme-nix", group: [:jekyll_plugins]
 ```
 
-And add this line to your Jekyll site's `_config.yml`:
+Then run `bundle` in your terminal.
+
+```sh
+bundle
+```
+
+Also add the theme to your Jekyll site's `_config.yml`:
 
 ```yaml
 theme: jekyll-theme-nix
 ```
 
-Make sure that this is the only `theme:` in `_config.yml`, and that there are no other `remote-theme:`. Afterwards run `bundle install`, and `bundle update` to update it, if there's a new version.
-
-```sh
-bundle install
-```
+Make sure that this is the only `theme:` in `_config.yml`, and that there are no other `remote-theme:`.
 
 ### Installation as Remote Theme
 
 Add this line to your Jekyll site's `Gemfile`:
 
 ```ruby
-gem "jekyll-remote-theme"
+gem "jekyll-remote-theme", group: [:jekyll_plugins]
 ```
 
-And add this line to your Jekyll site's `_config.yml`:
+Then run `bundle` in your terminal.
+
+```sh
+bundle
+```
+
+Finally add the remote theme to your Jekyll site's `_config.yml`:
 
 ```yaml
 remote_theme: michaelnordmeyer/jekyll-theme-nix
@@ -90,12 +98,10 @@ remote_theme: michaelnordmeyer/jekyll-theme-nix
 
 Make sure that this is the only `remote_theme:` in `_config.yml`, and that there are no other `theme:`.
 
-Finally, add `jekyll-remote-theme` to your plugin section in `_config.yml` as well.
+## Styled Atom Feed and Sitemap.xml
 
-## Feed.xml and Sitemap.xml
+Both are included in the demo. For a standard Jekyll installation, they work out-of-the-box if the files `feed.xslt.xml` and `sitemap.xsl` are copied to the site’s Jekyll directory.
 
-Both are included in the theme and don't need dependencies to `jekyll-feed` and `jekyll-sitemap` plugins. For a standard Jekyll installation, they work out-of-the-box if both files are copied to the Jekyll directory.
+The XSLT files style the XML files. If a user selects the link to the feed, a styled version of the feed will be shown in the browser with an explainer of what web feeds are.
 
-If hosted with the Github pages plugin, those plugins are already included and will automatically be used instead. To overwrite this, both files have to be copied manually from the theme's repository root to the site's repository root.
-
-Because feeds are generated once, they can only support one icon, which why the light variant was chosen.
+Because feeds are generated once, they can only support one icon. The light variant was chosen for the feed.

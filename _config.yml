@@ -1,17 +1,16 @@
-## Remove URL for Github Pages
+## Remove URL for GitHub Pages
 url: https://jekyll-theme-nix.michaelnordmeyer.com
 title: Jekyll Theme Nix
-author:
-  name: Michael Nordmeyer
-  uri: https://jekyll-theme-nix.michaelnordmeyer.com
 description: "A barebones theme for Jekyll"
 
 plugins:
+  - jekyll-feed
   - jekyll-include-cache
-  # - jekyll-redirect-from
+  - jekyll-redirect-from
+  - jekyll-sitemap
 
 ## Jekyll build settings
-exclude: [jekyll-theme-nix*, LICENSE, Rakefile.rb, README.md]
+exclude: [CODE_OF_CONDUCT.md, jekyll-theme-nix*, LICENSE, Rakefile.rb, README.md]
 ignore_theme_config: true # Since Jekyll 4.0, see: https://jekyllrb.com/docs/themes/#pre-configuring-theme-gems40, https://jekyllrb.com/docs/configuration/options/
 kramdown:
   show_warnings: true
@@ -26,20 +25,29 @@ liquid:
 sass:
   style: compressed
 strict_front_matter: true # default: false
-timezone: Europe/Berlin # default: local timezone
 # remote_theme: michaelnordmeyer/jekyll-theme-nix
 # theme: jekyll-theme-nix
+timezone: Europe/Berlin # default: local timezone
 
-## Custom theme settings to not overwrite anything from Jekyll or plugins
-lang: en-US # default: en (is not by Jekyll, but used by many other plugins)
+## Custom settings used by plugins and the theme
+author:
+  name: Michael Nordmeyer
+  # email: xxx@example.com
+  uri: https://michaelnordmeyer.com/
+# date_format: "%b %-d, %Y" # default: "%Y-%m-%d"
+lang: en-US # default: en
+title_separator: • # default: |
+## Custom theme settings
+favicon: /icon.webp # optional, but mandatory if favicon_dark is used, needs to be 180x180
+favicon_dark: /icon-dark.webp # optional, needs to be 180x180
+favicon_media_type: image/webp # mandatory, if favicon* is set
 theme_settings:
-  # date_format: "%b %-d, %Y" # default: "%Y-%m-%d"
-  favicon: /icon.webp # optional, needs to be 180x180
-  favicon_dark: /icon-dark.webp # optional, needs to be 180x180
-  favicon_media_type: image/webp # mandatory, if favicon is set
-  feed:
-    posts_limit: 999
-  # title_separator: "|" # default: "•"
+  # error_page_description: "Error page" # default: Error page
+  # redirect_page_title: "Redirecting…" # default: Redirecting…
+  # redirect_page_description: "Redirect page" # default: 'Redirect page'
+  # redirect_page_from: "Redirect from" # default: 'Redirect from'
+  # redirect_page_to: "to" # default: 'to'
+  # redirect_page_text: "Click here if you are not being redirected." # default: 'Click here if you are not being redirected.'
 
 ## https://jekyllrb.com/docs/configuration/front-matter-defaults/
 defaults:
