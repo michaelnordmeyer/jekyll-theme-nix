@@ -58,7 +58,9 @@ Single-line block-quote:
 
 Multi-line block-quote with a cite reference:
 
-> That’s been one of my mantras – focus and simplicity. Simple can be harder than complex. You have to work hard to get your thinking clean to make it simple. But it’s worth it in the end because once you get there, you can move mountains. —<cite>Steve Jobs</cite>
+> That’s been one of my mantras – focus and simplicity. Simple can be harder than complex. You have to work hard to get your thinking clean to make it simple. But it’s worth it in the end because once you get there, you can move mountains.
+
+— Steve Jobs
 
 ### Code Tag
 
