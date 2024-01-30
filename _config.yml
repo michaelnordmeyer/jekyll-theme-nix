@@ -12,6 +12,7 @@ plugins:
 ## Jekyll build settings
 exclude: [CODE_OF_CONDUCT.md, jekyll-theme-nix*, LICENSE, Rakefile.rb, README.md]
 ignore_theme_config: true # Since Jekyll 4.0, see: https://jekyllrb.com/docs/themes/#pre-configuring-theme-gems40, https://jekyllrb.com/docs/configuration/options/
+include: [.well-known]
 kramdown:
   show_warnings: true
   syntax_highlighter_opts:
