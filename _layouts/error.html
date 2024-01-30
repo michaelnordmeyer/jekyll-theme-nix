@@ -1,42 +1,14 @@
-<!DOCTYPE html>
-<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="{{ site.theme_settings.favicon_media_type }}" media="(prefers-color-scheme: light)" href="{{ site.theme_settings.favicon | relative_url }}">
-  <link rel="icon" type="{{ site.theme_settings.favicon_media_type }}" media="(prefers-color-scheme: dark)" href="{{ site.theme_settings.favicon_dark | relative_url }}">
-  <style>
-    :root { color-scheme: light dark; }
-    html {
-      max-width: 43rem;
-      margin: 0 auto;
-      padding: 1em;
-      font: 1rem / 1.5 sans-serif;
-    }
-    body { margin: 0; }
-    body > header > a { display: block; margin-block-start: 0.67em; margin-block-end: 1em; text-align: center; font-size: 2rem; font-weight: bold; }
-    article > header { margin-bottom: 2rem; }
-    article > header > h1 { margin-bottom: 0; }
-    article h1 { font-size: 2rem; line-height: 1.2; }
-    @media (prefers-color-scheme: dark) {
-      html { background-color: black; color: white; }
-      a { color: lightskyblue; }
-      a:visited { color: plum; }
-    }
-  </style>
-  <meta name="theme-color" content="#white">
+{% include head.html %}
   <title>{%- if page.title -%}{{ page.title | smartify }}{%- else -%}{{ site.title | smartify }}{%- endif -%}</title>
-  <meta name="description" content="Error page">
-  <meta name="robots" content="noindex,follow">
+  <meta name="description" content="{{ site.theme_settings.error_page_description | default: 'Error page' }}">
+{% include_cached error_style.html %}
 </head>
 <body>
-  <header>
-    <a rel="author" href="{{ '/' | relative_url }}" accesskey="h" title="Home">{{ site.title }}</a>
-  </header>
+{% include_cached header.html %}
   <main aria-label="Content">
     <article itemscope itemtype="https://schema.org/WebPage">
       <header>
-        <h1 itemprop="headline">{{ page.title | smartify }}</h1>
+        <h1 itemprop="headline name">{{ page.title | smartify }}</h1>
       </header>
       <div itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
 {{ content }}

@@ -1,13 +1,11 @@
 ---
 layout: default
 ---
-<header>
-    <a rel="author" href="{{ '/' | relative_url }}" accesskey="h" title="Home">{{ site.title }}</a>
-  </header>
+{% include_cached header.html %}
   <main aria-label="Content">
     <article itemscope itemtype="https://schema.org/WebPage">
       <header>
-        <h1 itemprop="headline">{{ page.title | smartify }}</h1>
+        <h1 itemprop="headline name">{{ page.title | smartify }}</h1>
       </header>
       <div itemprop="mainContentOfPage" itemscope itemtype="https://schema.org/WebPageElement">
 {{ content }}

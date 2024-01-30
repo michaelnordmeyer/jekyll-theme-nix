@@ -1,0 +1,26 @@
+  <style>
+    :root { color-scheme: light dark; }
+    html {
+      max-width: 43rem;
+      margin: 0 auto;
+      padding: 1em;
+      font: 1rem / 1.5 sans-serif;
+    }
+    body { margin: 0; }
+    body > header > h1 { margin-bottom: 2rem; text-align: center; }
+    body > header > h1 > a { text-decoration: none; color: black }
+    body > header > a { display: block; margin-block-start: 0.67em; margin-block-end: 1em; text-align: center; font-size: 2em; font-weight: bold; text-decoration: none; line-height: 1.2; }
+    body > header a:visited { color: black; }
+    article > header { margin-bottom: 2rem; }
+    article > header > h1 { margin-bottom: 0; }
+    article h1 { font-size: 2rem; line-height: 1.2; }
+    @media (prefers-color-scheme: dark) {
+      html { background-color: black; color: white; }
+      a { color: lightskyblue; }
+      a:visited { color: plum; }
+      body > header > h1 > a,
+      body > header > a { text-decoration: none; color: white }
+      body > header > h1 > a:visited,
+      body > header > a:visited { color: white; }
+    }
+  </style>

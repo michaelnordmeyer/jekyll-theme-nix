@@ -1,14 +1,12 @@
 ---
 layout: default
 ---
-<header>
-    <a rel="author" href="{{ '/' | relative_url }}" accesskey="h" title="Home">{{ site.title }}</a>
-  </header>
+{% include_cached header.html %}
   <main aria-label="Content">
     <article itemscope itemtype="https://schema.org/BlogPosting">
       <header>
-        <h1 itemprop="headline">{{ page.title | smartify }}</h1>
-        {%- assign date_format = site.theme_settings.date_format | default: "%Y-%m-%d" %}
+        <h1 itemprop="headline name">{{ page.title | smartify }}</h1>
+        {%- assign date_format = site.date_format | default: "%Y-%m-%d" %}
         <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: date_format }}</time>
       </header>
       <div itemprop="articleBody">
