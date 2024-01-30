@@ -2,7 +2,6 @@
 title: Markdown to HTML Test
 date: 2023-01-01 00:00:00 +0100
 permalink: /markdown-to-html-test
-layout: post
 ---
 ## HTML5 Tags Supported by Markdown
 

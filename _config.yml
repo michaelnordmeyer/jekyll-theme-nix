@@ -40,3 +40,28 @@ theme_settings:
   feed:
     posts_limit: 999
   # title_separator: "|" # default: "•"
+
+## https://jekyllrb.com/docs/configuration/front-matter-defaults/
+defaults:
+  - scope:
+      path: "" # an empty string here means all files in the project (allows globs, but is slow)
+      type: posts # type (optional): posts, pages, drafts, or any collection
+    values:
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
+      permalink: /:path/:basename
+  - scope:
+      path: "error"
+      type: pages
+    values:
+      layout: error
+      permalink: /:path/:basename
+      sitemap: false
+  - scope:
+      path: ""
+    values:
+      layout: default
