@@ -13,12 +13,6 @@ task :default => ["build"]
 desc "Builds the site for deployment"
 task :build do
   puts "==> Building #{domain}..."
-  system "bundle exec jekyll build"
-end
-
-desc "Builds the site for production"
-task :build_prod do
-  puts "==> Building #{domain} for production..."
   system "JEKYLL_ENV=\"production\" bundle exec jekyll build"
 end
 
