@@ -11,6 +11,7 @@
       margin: 0 auto;
       padding: 1em;
       font: 1rem / 1.5 sans-serif;
+      font-size-adjust: from-font;
     }
     body { margin: 0; }
     img, table { margin: 0 auto; }
@@ -22,17 +23,18 @@
     sub, sup { line-height: 0; }
     hr { border: 0; border-top: 1px solid; }
     h1, h2, h3, h4, h5, h6 { line-height: 1.2; }
-    body > header > h1 { margin-bottom: 2rem; text-align: center; }
+    body > header > h1 { margin-bottom: 1em; text-align: center; line-height: 1.2; }
     body > header > h1 > a { text-decoration: none; color: black }
-    body > header > a { display: block; margin-block-start: 0.67em; margin-block-end: 1em; text-align: center; font-size: 2em; font-weight: bold; text-decoration: none; line-height: 1.2; }
+    body > header > a { display: block; margin-block-start: 0.67em; margin-block-end: 1em; text-align: center; font-size: xx-large; font-weight: bold; text-decoration: none; line-height: 1.2; }
     body > header a:visited { color: black; }
     body > main > ul { padding: 0; }
     body > main > ul > li { margin: 0.5em 0; list-style-type: none; line-height: 1.25; }
     body > main > ul > li time { font-size: small; }
-    article > header { margin-bottom: 2rem; }
+    article > header { margin-bottom: 2em; }
     article > header > h1 { margin-bottom: 0; }
-    article h1 { font-size: 2rem; }
+    article h1 { font-size: xx-large; }
     header > time { display: block; color: grey; }
+    .footnotes { margin: 2em 0 1em; border-top: 1px solid; font-size: small; line-height: 1.5; }
     @media (prefers-color-scheme: dark) {
       html { background-color: black; color: white; }
       a { color: lightskyblue; }
@@ -44,7 +46,6 @@
       header > time { color: darkgrey; }
       th, td { border-color: grey; }
     }
-    .footnotes { margin: 0; font-size: small; }
   </style>
 </head>
 <body>

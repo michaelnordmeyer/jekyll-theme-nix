@@ -1,7 +1,9 @@
 ---
 layout: default
 ---
-{% include_cached header.html %}
+  <header>
+    <h1><a rel="author" href="{{ '/' | relative_url }}" accesskey="h" title="Home">{{ site.title }}</a></h1>
+  </header>
   <main aria-label="Content" itemscope itemtype="https://schema.org/Blog">
 {{ content }}
 
