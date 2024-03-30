@@ -3,7 +3,7 @@
   <title>{{ site.theme_settings.redirect_page_title | default: "Redirecting…" | smartify }}</title>
   <meta name="description" content="{{ site.theme_settings.redirect_page_description | default: 'Redirect Page' }}">
   <link rel="canonical" href="{{ page.redirect.to | absolute_url }}">
-{% include_cached error_style.html %}
+{% include_cached style.html %}
 </head>
 <body>
 {% include_cached header.html %}
