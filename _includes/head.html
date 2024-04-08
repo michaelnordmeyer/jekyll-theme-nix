@@ -1,4 +1,6 @@
-{%- assign cache_buster = site.time | date: '%Y%m%d%H%M' -%}
+{%- if site.cache_buster -%}
+  {%- assign cache_buster = site.time | date: '?%Y%m%d%H%M' -%}
+{%- endif -%}
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.lang | default: 'en' }}">
 <head>
@@ -6,10 +8,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 {%- if site.favicon %}
   {%- if site.favicon_dark %}
-  <link rel="icon" type="{{ site.favicon_media_type }}" media="(prefers-color-scheme: light)" href="{{ site.favicon | append: '?'| append: cache_buster | relative_url }}">
-  <link rel="icon" type="{{ site.favicon_media_type }}" media="(prefers-color-scheme: dark)" href="{{ site.favicon_dark | append: '?'| append: cache_buster | relative_url }}">
+  <link rel="icon" type="{{ site.favicon_media_type }}" media="(prefers-color-scheme: light)" href="{{ site.favicon | append: cache_buster | relative_url }}">
+  <link rel="icon" type="{{ site.favicon_media_type }}" media="(prefers-color-scheme: dark)" href="{{ site.favicon_dark | append: cache_buster | relative_url }}">
   {%- else %}
-  <link rel="icon" type="{{ site.favicon_media_type }}" href="{{ site.favicon | append: '?'| append: cache_buster | relative_url }}">
+  <link rel="icon" type="{{ site.favicon_media_type }}" href="{{ site.favicon | append: cache_buster | relative_url }}">
   {%- endif %}
 {%- endif %}
   <meta name="color-scheme" content="light dark">

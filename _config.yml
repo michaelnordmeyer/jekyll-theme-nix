@@ -35,6 +35,7 @@ author:
   name: Michael Nordmeyer
   # email: xxx@example.com
   uri: https://michaelnordmeyer.com/
+# cache_buster: true # default: false
 # date_format: "%b %-d, %Y" # default: "%Y-%m-%d"
 lang: en-US # default: en
 title_separator: • # default: |
