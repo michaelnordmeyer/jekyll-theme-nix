@@ -109,7 +109,7 @@ Markdown tables don't support captions, but header and footer.
 
 ### Delete Tag
 
-This tag will let you ~~strikeout~~ text.
+This tag will let you ~~strikethrough~~ text.
 
 ### Footnotes
 
