@@ -28,15 +28,7 @@ If this theme feels to bloated to you, you can try [“Nixer”](https://github.
 
 ### Default Colors
 
-The default browser link colors don't look great, if they're inverted in dark mode, just like white is inverted to black for the background:
-
-- Link: <span style="background-color: white; color: #0000ee">&nbsp;#0000ee&nbsp;</span> => <span style="background-color: black; color: #ffff11">&nbsp;#ffff11&nbsp;</span>
-- Link visited: <span style="background-color: white; color: #551a8b">&nbsp;#551a8b&nbsp;</span> => <span style="background-color: black; color: #aae574">&nbsp;#aae574&nbsp;</span>
-
-Therefore, they're set to somewhat lighter versions of the default colors:
-
-- Link: <span style="background-color: white; color: #0000ee">&nbsp;#0000ee&nbsp;</span> => <span style="background-color: black; color: lightskyblue">&nbsp;lightskyblue&nbsp;</span>
-- Link visited: <span style="background-color: white; color: #551a8b">&nbsp;#551a8b&nbsp;</span> => <span style="background-color: black; color: plum">&nbsp;plum&nbsp;</span>
+The default colors are the colors of the respective browsers, both in light mode and in dark mode.
 
 ### Favicon
 
