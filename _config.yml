@@ -44,7 +44,6 @@ favicon_dark: /icon-dark.webp # optional, needs to be 180x180
 favicon_media_type: image/webp # mandatory, if favicon* is set
 theme_settings:
   # redirect_page_title: "Redirecting…" # default: Redirecting…
-  # redirect_page_description: "Redirect Page" # default: 'Redirect Page'
   # redirect_page_from: "Redirecting from" # default: 'Redirecting from'
   # redirect_page_to: "to" # default: 'to'
   # redirect_page_text: "Click here if you are not being redirected." # default: 'Click here if you are not being redirected.'
