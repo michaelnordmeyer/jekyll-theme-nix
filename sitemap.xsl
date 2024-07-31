@@ -1,5 +1,5 @@
 ---
-permalink: /sitemap.xslt.xml
+permalink: /sitemap.xsl
 sitemap: false
 layout: none
 ---
