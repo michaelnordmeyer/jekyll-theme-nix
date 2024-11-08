@@ -2,23 +2,34 @@
 layout: default
 ---
   <header>
-    <h1><a rel="author" href="{{ '/' | relative_url }}" accesskey="h" title="Home">{{ site.title }}</a></h1>
+    <nav>
+      <h1><a rel="author" href="{{ '/' | relative_url }}" accesskey="h" title="Home">{{ site.title }}</a></h1>
+    </nav>
   </header>
   <main aria-label="Content" itemscope itemtype="https://schema.org/Blog">
+    {%- assign content_without_newlines = content | strip_newlines -%}
+    {% if content_without_newlines != "" %}
+    <section aria-label="Introduction">
 {{ content }}
+    </section>
+    {%- endif %}
 
     {%- if site.posts.size > 0 -%}
       {%- if page.list_title %}
-    <h2>{{ page.list_title | smartify }}</h2>
-      {%- endif -%}
+    <section aria-labelledby="{{ page.list_title | downcase | url_encode }}">
+      <h2 id="{{ page.list_title | downcase | url_encode }}">{{ page.list_title | smartify }}</h2>
+      {%- else -%}
+    <section aria-label="Posts">
+        {%- endif -%}
       {%- assign date_format = site.date_format | default: "%Y-%m-%d" %}
-    <ul>
+      <ul>
       {%- for post in site.posts %}
-      <li itemscope itemtype="https://schema.org/BlogPosting">
-        <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: date_format }}</time>
-        <a href="{{ post.url | relative_url }}" itemprop="headline name">{{ post.title | smartify }}</a>
-      </li>
+        <li itemscope itemtype="https://schema.org/BlogPosting">
+          <time itemprop="datePublished" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: date_format }}</time>
+          <a href="{{ post.url | relative_url }}" itemprop="headline name">{{ post.title | smartify }}</a>
+        </li>
       {%- endfor %}
-    </ul>
+      </ul>
+    </section>
     {%- endif %}
   </main>
