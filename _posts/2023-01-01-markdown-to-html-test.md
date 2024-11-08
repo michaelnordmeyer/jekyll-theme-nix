@@ -99,7 +99,7 @@ This tag shows **bold** text.
 
 ### Tables
 
-Markdown tables don't support captions, but header and footer.
+Markdown tables don't support captions, but headers and footers.
 
 | Character                                                                      | Appearance |
 | ------------------------------------------------------------------------------ | ----------:|
