@@ -12,7 +12,19 @@ layout: none
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>Sitemap {{ site.title_separator | default: '|' }} {{ site.title | smartify }}</title>
         {%- if site.favicon %}
-        <link rel="icon" type="{{ site.favicon_media_type }}" href="{{ site.favicon }}" />
+          {%- if site.favicon contains '.webp' %}
+        <link rel="icon" type="image/webp" href="{{ site.favicon }}" />
+          {%- elsif site.favicon contains '.png' %}
+        <link rel="icon" type="image/png" href="{{ site.favicon }}" />
+          {%- elsif site.favicon contains '.svg' %}
+        <link rel="icon" type="image/svg+xml" href="{{ site.favicon }}" />
+          {%- elsif site.favicon contains '.jpg' or site.favicon contains '.jpeg' %}
+        <link rel="icon" type="image/jpeg" href="{{ site.favicon }}" />
+          {%- elsif site.favicon contains '.gif' %}
+        <link rel="icon" type="image/gif" href="{{ site.favicon }}" />
+          {%- elsif site.favicon contains '.ico' %}
+        <link rel="icon" type="image/x-icon" href="{{ site.favicon }}" />
+          {%- endif %}
         {%- endif %}
         <meta name="author" content="{{ site.author.name }}" />
         <link rel="canonical" href="{{ '/' | absolute_url }}" />
