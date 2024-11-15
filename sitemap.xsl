@@ -15,7 +15,7 @@ layout: none
         <link rel="icon" type="{{ site.favicon_media_type }}" href="{{ site.favicon }}" />
         {%- endif %}
         <meta name="author" content="{{ site.author.name }}" />
-        <link rel="canonical" href="{{ site.url | absolute_url }}" />
+        <link rel="canonical" href="{{ '/' | absolute_url }}" />
         <style>
           :root { color-scheme: light dark; }
           html {
@@ -36,7 +36,7 @@ layout: none
       <body>
         <h1>Sitemap</h1>
         <p>This is the sitemap.xml (<a href="https://sitemaps.org/">what are sitemaps?</a>), which is only used by search engines.</p>
-        <p><a href="{{ site.url | absolute_url }}">Visit the website of this sitemap →</a></p>
+        <p><a href="{{ '/' | absolute_url }}">Visit the website of this sitemap →</a></p>
         <ul>
           <xsl:for-each select="/sitemap:urlset/sitemap:url">
             <li>
