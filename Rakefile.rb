@@ -41,6 +41,13 @@ task :gzip do
   system "ssh -p #{ssh_port} #{ssh_user}@#{ssh_domain} 'for file in $(find #{ssh_path} -type f -name \"*.html\" -o -name \"*.css\" -o -name \"*.css.map\" -o -name \"*.js\" -o -name \"*.svg\" -o -name \"*.xml\" -o -name \"*.xsl\" -o -name \"*.xslt\" -o -name \"*.json\" -o -name \"*.txt\"); do printf . && gzip -kf \"${file}\"; done; echo'"
 end
 
+desc "Builds the robots.txt"
+task :robots do
+  puts "==> Building #{domain} robots.txt..."
+  system "printf 'Sitemap: https://#{domain}/sitemap.xml\n\n' > robots.txt"
+	system "cat ../robots.txt >> robots.txt"
+end
+
 desc "Builds the gem"
 task :gembuild do
   puts "==> Building gem #{artefact}..."
@@ -63,4 +70,10 @@ desc "Pushes the gem to rubygems.org, needs version number like `rake gempush\[1
 task :gempush, [:version] do |task, args|
   puts "==> Pushing gem #{artefact}-#{args[:version]}.gem to rubygems.org..."
   system "gem push #{artefact}-#{args[:version]}.gem"
+end
+
+desc "Cleans the source dir"
+task :clean do
+  puts "==> Cleaning #{domain}..."
+  system "bundle exec jekyll clean"
 end
