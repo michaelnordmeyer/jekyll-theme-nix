@@ -48,32 +48,38 @@ task :robots do
 	system "cat ../robots.txt >> robots.txt"
 end
 
-desc "Builds the gem"
-task :gembuild do
-  puts "==> Building gem #{artefact}..."
-  system "gem build #{artefact}.gemspec"
-end
-
-desc "Installs the local gem, needs version number like `rake geminstall\[1.0.0\]`"
-task :geminstall, [:version] do |task, args|
-  puts "==> Installing local gem #{artefact}-#{args[:version]}.gem..."
-  system "gem install --local #{artefact}-#{args[:version]}.gem"
-end
-
-desc "Uninstalls the local gem"
-task :gemuninstall do
-  puts "==> Uninstalling local gem #{artefact}..."
-  system "gem uninstall #{artefact}"
-end
-
-desc "Pushes the gem to rubygems.org, needs version number like `rake gempush\[1.0.0\]`"
-task :gempush, [:version] do |task, args|
-  puts "==> Pushing gem #{artefact}-#{args[:version]}.gem to rubygems.org..."
-  system "gem push #{artefact}-#{args[:version]}.gem"
-end
-
 desc "Cleans the source dir"
 task :clean do
   puts "==> Cleaning #{domain}..."
   system "bundle exec jekyll clean"
+end
+
+desc "Builds the gem"
+task :gembuild do
+  puts "==> Building #{artefact} gem..."
+  sh "gem build #{artefact}.gemspec"
+end
+
+desc "Installs the gem locally according to the gemspec’s version"
+task :geminstall do
+  puts "==> Installing #{artefact} gem locally..."
+  sh "gem install --local #{artefact}-#{version}.gem"
+end
+
+desc "Uninstalls the gem according to the gemspec’s version"
+task :gemuninstall do
+  puts "==> Uninstalling #{artefact} gem..."
+  sh "gem uninstall #{artefact} --version #{version}"
+end
+
+desc "Pushes the gem to rubygems.org according to the gemspec’s version"
+task :gempush do
+  puts "==> Pushing #{artefact} to rubygems.org..."
+  sh "gem push #{artefact}-#{version}.gem"
+end
+
+desc "Pushes the gem to rubygems.org, needs version number like `rake gempush\[1.0.0\]`"
+task :gempushversioned, [:version] do |task, args|
+  puts "==> Pushing #{artefact} to rubygems.org..."
+  sh "gem push #{artefact}-#{args[:version]}.gem"
 end

@@ -12,6 +12,8 @@ Gem::Specification.new do |spec|
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_data|_layouts|_includes|_sass|(CODE_OF_CONDUCT|LICENSE|README)((\.(txt|md|markdown)|$))|_config\.yml)!i) }
 
+  spec.required_ruby_version = '>= 2.7.0' # according to jekyll.gemspec
+
   spec.add_runtime_dependency "jekyll", ">= 3.9.3", "< 5.0"
   spec.add_runtime_dependency "jekyll-feed", "~> 0.17"
   spec.add_runtime_dependency "jekyll-include-cache", "~> 0.2"
