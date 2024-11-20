@@ -14,7 +14,7 @@ desc "Builds the robots.txt"
 task :robots do
   puts "==> Building #{domain} robots.txt..."
   sh "printf 'Sitemap: https://#{domain}/sitemap.xml\\n\\n' > robots.txt"
-  sh "cat ../../michaelnordmeyer.com/robots.txt >> robots.txt"
+  sh "printf 'User-agent: *\\nDisallow: /\\n' >> robots.txt"
 end
 
 desc "Builds the site for deployment"
