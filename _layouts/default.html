@@ -1,5 +1,5 @@
 {% include head.html %}
-  <title>{%- if page.title -%}{{ page.title | smartify }} {{ site.title_separator | default: '|' }} {{ site.title | smartify }}{%- else -%}{{ site.title | smartify }} {{ site.title_separator | default: '|' }} {{ site.description | smartify }}{%- endif -%}</title>
+  <title>{%- if page.title -%}{{ page.title | smartify }}{{ site.title_separator | default: ' | ' }}{{ site.title | smartify }}{%- else -%}{{ site.title | smartify }}{{ site.title_separator | default: ' | ' }}{{ site.description | smartify }}{%- endif -%}</title>
   <meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | smartify }}{% else %}{{ site.description | smartify }}{% endif %}">
   <meta name="author" content="{{ site.author.name }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">

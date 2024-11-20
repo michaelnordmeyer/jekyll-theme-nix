@@ -10,48 +10,78 @@ ssh_path = "/var/www/#{domain}/"
 
 task :default => ["build"]
 
+desc "Builds the robots.txt"
+task :robots do
+  puts "==> Building #{domain} robots.txt..."
+  sh "printf 'Sitemap: https://#{domain}/sitemap.xml\\n\\n' > robots.txt"
+  sh "cat ../../michaelnordmeyer.com/robots.txt >> robots.txt"
+end
+
 desc "Builds the site for deployment"
 task :build do
+  Rake::Task[:robots].invoke
   puts "==> Building #{domain}..."
-  system "JEKYLL_ENV=\"production\" bundle exec jekyll build"
+  sh "JEKYLL_ENV=\"production\" bundle exec jekyll build"
 end
 
 desc "Serves the site locally"
 task :serve do
+  Rake::Task[:robots].invoke
   puts "==> Building and serving #{domain} locally..."
-  system "bundle exec jekyll serve"
+  sh "bundle exec jekyll serve"
 end
 
-desc "Deploys the content of ./_site to the server via rsync"
+desc "Syncs the content of ./_site to the server via rsync"
 task :rsync do
   puts "==> Rsyncing #{domain}'s content to SSH host #{ssh_domain}"
-  system "rsync -e 'ssh -p 1111' -vcrlptDShP --delete --rsync-path 'sudo -u root rsync' --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r \
+  sh "rsync -e 'ssh -p #{ssh_port}' -vcrlptDShP --delete --rsync-path 'sudo -u root rsync' --chmod=Du=rwx,Dgo=rx,Fu=rw,Fgo=r \
     --exclude=.DS_Store \
     --exclude=._* \
     --exclude=.git \
     --exclude=.gitignore \
     _site/ \
     #{ssh_user}@#{ssh_domain}:#{ssh_path}"
-  system 'rm -rf _site'
+end
+
+desc "Copies robots.txt to the server via scp"
+task :scprobots do
+  puts "==> Scp’ing #{domain} robots.txt to SSH host #{ssh_domain}"
+  sh "scp -P #{ssh_port} robots.txt #{ssh_user}@#{ssh_domain}:#{ssh_path}"
 end
 
 desc "Gzips the site via SSH"
 task :gzip do
   puts "==> Gzip'ing #{domain} via SSH..."
-  system "ssh -p #{ssh_port} #{ssh_user}@#{ssh_domain} 'for file in $(find #{ssh_path} -type f -name \"*.html\" -o -name \"*.css\" -o -name \"*.css.map\" -o -name \"*.js\" -o -name \"*.svg\" -o -name \"*.xml\" -o -name \"*.xsl\" -o -name \"*.xslt\" -o -name \"*.json\" -o -name \"*.txt\"); do printf . && gzip -kf \"${file}\"; done; echo'"
+  sh "ssh -p #{ssh_port} #{ssh_user}@#{ssh_domain} 'for file in $(find #{ssh_path} -type f -name \"*.html\" -o -name \"*.css\" -o -name \"*.css.map\" -o -name \"*.js\" -o -name \"*.svg\" -o -name \"*.xml\" -o -name \"*.xsl\" -o -name \"*.xslt\" -o -name \"*.json\" -o -name \"*.txt\"); do printf . && gzip -kf \"${file}\"; done; echo'"
 end
 
-desc "Builds the robots.txt"
-task :robots do
-  puts "==> Building #{domain} robots.txt..."
-  system "printf 'Sitemap: https://#{domain}/sitemap.xml\n\n' > robots.txt"
-	system "cat ../robots.txt >> robots.txt"
+desc "Gzips robots.txt via SSH"
+task :gziprobots do
+  puts "==> Gzip'ing #{domain} robots.txt via SSH..."
+  sh "ssh -p #{ssh_port} #{ssh_user}@#{ssh_domain} 'gzip -kf #{ssh_path}robots.txt'"
+end
+
+desc "Builds and deploys the site"
+task :deploy do
+  puts "==> Building and deploying #{domain}..."
+  Rake::Task[:build].invoke
+  Rake::Task[:rsync].invoke
+  Rake::Task[:gzip].invoke
+  Rake::Task[:clean].invoke
+end
+
+desc "Builds and deploys the robots.txt"
+task :deployrobots do
+  puts "==> Building and deploying #{domain} robots.txt..."
+  Rake::Task[:robots].invoke
+  Rake::Task[:scprobots].invoke
+  Rake::Task[:gziprobots].invoke
 end
 
 desc "Cleans the source dir"
 task :clean do
   puts "==> Cleaning #{domain}..."
-  system "bundle exec jekyll clean"
+  sh "bundle exec jekyll clean"
 end
 
 desc "Builds the gem"

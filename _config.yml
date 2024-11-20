@@ -1,4 +1,4 @@
-## Remove URL for GitHub Pages
+## Remove URL for GitHub Pages plugin
 url: https://jekyll-theme-nix.michaelnordmeyer.com
 title: Jekyll Theme Nix
 description: "A barebones theme for Jekyll"
@@ -9,7 +9,7 @@ plugins:
   - jekyll-redirect-from
   - jekyll-sitemap
 
-## Jekyll build settings
+## Jekyll build settings https://jekyllrb.com/docs/configuration/default/
 exclude: [CODE_OF_CONDUCT.md, jekyll-theme-nix*, LICENSE, Rakefile.rb, README.md]
 ignore_theme_config: true # Since Jekyll 4.0, see: https://jekyllrb.com/docs/themes/#pre-configuring-theme-gems40, https://jekyllrb.com/docs/configuration/options/
 include: [.well-known]
@@ -35,19 +35,22 @@ author:
   name: Michael Nordmeyer
   # email: xxx@example.com
   uri: https://michaelnordmeyer.com/
+  copyright: Copyright © Michael Nordmeyer
+  license_link: https://raw.githubusercontent.com/michaelnordmeyer/jekyll-theme-nix/main/LICENSE
 # date_format: "%b %-d, %Y" # default: "%Y-%m-%d"
-lang: en-US # default: en
-title_separator: • # default: |
+lang: en-US # default: en (is not by Jekyll, but used by many other plugins)
+title_separator: " • " # default: " | "
 ## Custom theme settings
 favicon: /icon.webp # optional, but mandatory if favicon_dark is used, needs to be 180x180
 favicon_dark: /icon-dark.webp # optional, needs to be 180x180
 theme_settings:
-  # redirect_page_title: "Redirecting…" # default: Redirecting…
-  # redirect_page_from: "Redirecting from" # default: 'Redirecting from'
-  # redirect_page_to: "to" # default: 'to'
-  # redirect_page_text: "Click here if you are not being redirected." # default: 'Click here if you are not being redirected.'
+  # redirect_page_title: "Redirecting…" # default: "Redirecting…"
+  # redirect_page_from: "Redirecting from" # default: "Redirecting from"
+  # redirect_page_to: "to" # default: "to"
+  # redirect_page_text: "Click here if you are not being redirected." # default: "Click here if you are not being redirected.""
 
 ## https://jekyllrb.com/docs/configuration/front-matter-defaults/
+# Only works for all posts, but can work for a subset of pages
 defaults:
   - scope:
       path: "" # an empty string here means all files in the project (allows globs, but is slow)
@@ -61,11 +64,10 @@ defaults:
       layout: page
       permalink: /:path/:basename
   - scope:
-      path: "error"
+      path: error
       type: pages
     values:
       layout: error
-      permalink: /:path/:basename
       sitemap: false
   - scope:
       path: ""

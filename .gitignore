@@ -11,3 +11,5 @@ vendor/
 
 # Gems
 *.gem
+
+robots.txt

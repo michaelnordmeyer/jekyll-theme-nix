@@ -10,7 +10,7 @@ layout: none
     <html>
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Sitemap {{ site.title_separator | default: '|' }} {{ site.title | smartify }}</title>
+        <title>Sitemap{{ site.title_separator | default: ' | ' }}{{ site.title | smartify }}</title>
         {%- if site.favicon %}
           {%- if site.favicon contains '.webp' %}
         <link rel="icon" type="image/webp" href="{{ site.favicon }}" />
