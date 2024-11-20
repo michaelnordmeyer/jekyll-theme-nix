@@ -10,7 +10,7 @@ plugins:
   - jekyll-sitemap
 
 ## Jekyll build settings https://jekyllrb.com/docs/configuration/default/
-exclude: [CODE_OF_CONDUCT.md, jekyll-theme-nix*, LICENSE, Rakefile.rb, README.md]
+exclude: [CODE_OF_CONDUCT.md, jekyll-theme-nix*, LICENSE, Rakefile.rb, README.md, screenshot.png]
 ignore_theme_config: true # Since Jekyll 4.0, see: https://jekyllrb.com/docs/themes/#pre-configuring-theme-gems40, https://jekyllrb.com/docs/configuration/options/
 include: [.well-known]
 kramdown:
