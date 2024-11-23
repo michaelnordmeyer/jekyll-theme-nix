@@ -17,11 +17,20 @@ task :robots do
   sh "printf 'User-agent: *\\nDisallow: /\\n' >> robots.txt"
 end
 
+desc "Beautifies kramdown output"
+task :beautify do
+  puts "==> Beautifying #{domain} kramdown output..."
+  sh "for file in _site/*.html _site/**/*.html; do sed -i '' -E 's,<((br|hr|img|link|meta).*) />,<\\1>,g' ${file}; done"
+  sh "for file in _site/*.html _site/**/*.html; do sed -i '' -E 's/ class=\"footnotes?\"//g' ${file}; done"
+  sh "for file in _site/*.html _site/**/*.html; do sed -i '' -E 's/ class=\"reversefootnote\"//g' ${file}; done"
+end
+
 desc "Builds the site for deployment"
 task :build do
   Rake::Task[:robots].invoke
   puts "==> Building #{domain}..."
   sh "JEKYLL_ENV=\"production\" bundle exec jekyll build"
+  Rake::Task[:beautify].invoke
 end
 
 desc "Serves the site locally"
