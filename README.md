@@ -1,6 +1,6 @@
 # Jekyll Theme Nix
 
-A barebones theme for [Jekyll](https://github.com/jekyll/jekyll), which doesn't need any dependencies except `jekyll-redirect-from`, if you want to redirect pages. It is optimized for fast build speeds as well.
+A barebones theme for [Jekyll](https://github.com/jekyll/jekyll), which doesn't need any dependencies except `jekyll-redirect-from`, if you want to redirect pages without any web server configuration. It is optimized for fast build speeds as well.
 
 Its purpose is to be a minimalist, single-author theme. Because there is no menu, pages can be manually linked in the body of `index.md`.
 
