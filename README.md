@@ -12,6 +12,8 @@ It also changes as little as possible from the default browser settings to impro
 
 If this theme feels to bloated to you, you can try [“Nixer”](https://github.com/michaelnordmeyer/jekyll-theme-nixer), the ultra-minimalist version of “Nix”.
 
+[I wrote up what inspired me to create both themes](https://michaelnordmeyer.com/i-created-two-ultra-minimalistic-jekyll-themes).
+
 ## Limited Features
 
 - Dark mode, because we want to be respectful
