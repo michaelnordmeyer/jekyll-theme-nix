@@ -41,8 +41,8 @@ author:
 lang: en-US # default: en (is not by Jekyll, but used by many other plugins)
 title_separator: " • " # default: " | "
 ## Custom theme settings
-favicon: /icon.webp # optional, but mandatory if favicon_dark is used, needs to be 180x180
-favicon_dark: /icon-dark.webp # optional, needs to be 180x180
+favicon: /assets/icons/icon.webp # optional, but mandatory if favicon_dark is used, needs to be 180x180
+favicon_dark: /assets/icons/icon-dark.webp # optional, needs to be 180x180
 theme_settings:
   # redirect_page_title: "Redirecting…" # default: "Redirecting…"
   # redirect_page_from: "Redirecting from" # default: "Redirecting from"

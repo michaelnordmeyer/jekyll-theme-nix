@@ -34,7 +34,7 @@ The default colors are the colors of the respective browsers, both in light mode
 
 ### Favicon
 
-`icon.webp` is the favicon for the light mode, and there's also a dark variant `icon-dark.webp` for dark mode. If you want to use them, these files have to be copied manually from the demo's repository root to your site's repository root.
+`/assets/icons/icon.webp` is the favicon for the light mode, and there's also a dark variant `/assets/icons/icon-dark.webp` for dark mode. They will be used automatically or you can replace them by creating new ones in the same location.
 
 ### Nix?
 
