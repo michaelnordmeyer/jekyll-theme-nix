@@ -49,7 +49,7 @@ Another paragraph with more text to show, how the paragraph spacing is done. Not
 
 ### Anchor Tag (aka Link)
 
-This is a [link](https://example.com).
+This is a [link](https://example.com/).
 
 ### Block-Quote Tag
 
