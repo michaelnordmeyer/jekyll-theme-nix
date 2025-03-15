@@ -2,15 +2,19 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-nix"
-  spec.version       = "1.1.1"
+  spec.version       = "1.1.2"
   spec.authors       = ["Michael Nordmeyer"]
   spec.email         = ["michaelnordmeyer@users.noreply.github.com"]
 
-  spec.summary       = "A very minimalistic, single-author Jekyll theme with almost default browser styling, and a dark mode."
+  spec.summary       = "A very minimalist, single-author Jekyll theme with almost default browser styling, and a dark mode."
   spec.homepage      = "https://github.com/michaelnordmeyer/jekyll-theme-nix"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r!^(assets|_data|_layouts|_includes|_sass|(CODE_OF_CONDUCT|LICENSE|README)((\.(txt|md|markdown)|$))|_config\.yml)!i) }
+  spec.metadata["plugin_type"] = "theme"
+
+  spec.files         = `git ls-files -z`.split("\x0").select do |f|
+    f.match(%r!^(assets|_data|_layouts|_includes|_sass|(CODE_OF_CONDUCT|LICENSE|README)((\.(txt|md|markdown)|$))|_config\.yml)!i)
+  end
 
   spec.required_ruby_version = '>= 2.7.0' # according to jekyll.gemspec
 
