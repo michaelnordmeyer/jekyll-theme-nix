@@ -1,32 +1,48 @@
   <style>
+    :root {
+      --default-font-px: 16;
+      --font-size: 1rem;
+      --font-family: sans-serif;
+      --spacing: 1em;
+      --line-height: 1.5;
+      /* Calculate integer pixel values depending on the font size (1rem = 16px) */
+      --border-size:       calc(var(--font-size) *  1/var(--default-font-px));
+      --x-script:          calc(var(--font-size) * 11/var(--default-font-px));
+      --small-font-size:   calc(var(--font-size) * 14/var(--default-font-px));
+      --big-font-size:     calc(var(--font-size) * 32/var(--default-font-px));
+    }
     html {
-      max-width: 43rem;
+      max-width: 720px;
       margin: 0 auto;
-      padding: 1em;
-      font: 1rem / 1.5 sans-serif;
-      font-size-adjust: from-font;
+      padding: calc(var(--spacing) * 1/2);
+      font: var(--font-size) / var(--line-height) var(--font-family);
+      /* font-size-adjust: from-font; */
+      -moz-text-size-adjust: none;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
     }
     body { margin: 0; }
     img, table { margin: 0 auto; }
     table { border-collapse: collapse; }
-    th, td { padding: 0.25em; border: 1px solid color-mix(in srgb, currentcolor 50%, transparent); }
+    th, td { padding: calc(var(--spacing) * 1/4); border: var(--border-size) solid color-mix(in srgb, currentcolor 50%, transparent); }
     img { display: block; max-width: 100%; height: auto; }
-    figure { margin: 0; text-align: center; font-size: 0.8125rem; }
-    blockquote { margin: 1em 1.5em 1em 0.5em; padding-left: 1em; border-left: 1px solid color-mix(in srgb, currentcolor 50%, transparent); }
-    sub, sup { line-height: 0; }
-    hr { border: 0; border-top: 1px solid; }
+    figure { margin-left: 0; margin-right: 0; max-width: 100%; text-align: center; font-size: var(--small-font-size); line-height: 1; }
+    blockquote { margin: var(--spacing) calc(var(--spacing) * 3/2) var(--spacing) calc(var(--spacing) * 1/2); padding-left: var(--spacing); border-left: var(--border-size) solid color-mix(in srgb, currentcolor 50%, transparent); }
+    sub, sup { font-size: var(--x-script); line-height: 0; }
+    hr { margin: calc(var(--spacing) * 2) 0; border: 0; border-top: var(--border-size) solid; }
     h1, h2, h3, h4, h5, h6 { line-height: 1.2; text-wrap: balance; }
-    h1 { font-size: 2rem; }
-    body > header > nav > h1 { margin-bottom: 1em; text-align: center; line-height: 1.2; }
+    h1 { font-size: var(--big-font-size); }
+    body > header > nav > h1 { margin-bottom: var(--spacing); text-align: center; line-height: 1.2; }
     body > header a { text-decoration: none; color: currentcolor; }
-    body > header > nav > a { display: block; margin-block-start: 0.67em; margin-block-end: 1em; text-align: center; font-size: 2rem; font-weight: bold; line-height: 1.2; }
+    body > header > nav > a { display: block; margin-block-start: calc(var(--spacing) * 2/3); margin-block-end: var(--spacing); text-align: center; font-size: var(--big-font-size); font-weight: bold; line-height: 1.2; }
     body > header a:visited { color: currentcolor; }
     body > main > section > ul { padding: 0; }
-    body > main > section > ul > li { margin: 0.5em 0; list-style-type: none; line-height: 1.25; }
-    body > main > section > ul > li time { font-size: 0.8125rem; }
-    article > header { margin-bottom: 2em; }
+    body > main > section > ul > li { margin: calc(var(--spacing) * 1/2) 0; list-style-type: none; line-height: 1.25; }
+    body > main > section > ul > li time { font-size: var(--small-font-size); }
+    article > header { margin-bottom: calc(var(--spacing) * 2); }
     article > header > h1 { margin-bottom: 0; }
-    article h1 { font-size: 2rem; }
+    article h1 { font-size: var(--big-font-size); }
     header > time { display: block; color: color-mix(in srgb, currentcolor 50%, transparent); }
-    .footnotes { margin: 2em 0 1em; border-top: 1px solid; font-size: 0.8125rem; line-height: 1.5; }
+    hr:has(+div[role="doc-endnotes"]) { margin-bottom: var(--spacing); }
+    div[role="doc-endnotes"] { margin-top: 0; font-size: var(--small-font-size); line-height: var(--line-height); }
   </style>
