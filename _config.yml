@@ -28,7 +28,7 @@ sass:
 strict_front_matter: true # default: false
 # remote_theme: michaelnordmeyer/jekyll-theme-nix
 # theme: jekyll-theme-nix
-timezone: Europe/Berlin # default: local timezone
+timezone: UTC # default: local timezone
 
 ## Custom settings used by plugins and the theme
 author:
