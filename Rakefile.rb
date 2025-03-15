@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 ## Deployment settings
-artefact = "jekyll-theme-nix"
+gemspec = File.absolute_path(File.basename(File.dirname(__FILE__)) + ".gemspec")
+artefact = Gem::Specification::load(gemspec).name
+version = Gem::Specification::load(gemspec).version
 domain = "#{artefact}.michaelnordmeyer.com"
 ssh_domain = "michaelnordmeyer.com"
 ssh_port = 1111
