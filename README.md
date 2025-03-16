@@ -30,7 +30,7 @@ If this theme feels to bloated to you, you can try [“Nixer”](https://github.
 
 ### Default Colors
 
-The default colors are the colors of the respective browsers, both in light mode and in dark mode.
+The default colors are the colors of the respective browsers, both in light and in dark mode.
 
 ### Favicon
 
