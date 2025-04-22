@@ -10,9 +10,9 @@ It also changes as little as possible from the default browser settings to impro
 
 ![Screenshot](/screenshot.png)
 
-If this theme feels to bloated to you, you can try [“Nixer”](https://github.com/michaelnordmeyer/jekyll-theme-nixer), the ultra-minimalist version of “Nix”.
+If this theme feels to bloated to you, you can try [“Nixer”](https://github.com/michaelnordmeyer/jekyll-theme-nixer), the ultra-minimalist version of “Nix”, or [“Nixest”](https://github.com/michaelnordmeyer/jekyll-theme-nixest), the even less functional version of “Nixer”.
 
-[I wrote up what inspired me to create both themes](https://michaelnordmeyer.com/i-created-two-ultra-minimalistic-jekyll-themes).
+[I wrote up what inspired me to create the three themes](https://michaelnordmeyer.com/i-created-three-ultra-minimalistic-jekyll-themes).
 
 ## Limited Features
 
