@@ -1,6 +1,6 @@
 ---
 title: Markdown to HTML Test
-date: 2023-01-01 12:00:00 +0000
+date: 2023-01-01 12:00:00 +00:00
 permalink: /markdown-to-html-test
 sitemap: false
 ---
