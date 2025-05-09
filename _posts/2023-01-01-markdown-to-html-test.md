@@ -4,9 +4,9 @@ date: 2023-01-01 12:00:00 +00:00
 permalink: /markdown-to-html-test
 sitemap: false
 ---
-## HTML5 Tags Supported by Markdown
-
 These are the supported HTML tags, which will be generated from Markdown.
+
+## HTML Tags Supported by Markdown
 
 # Heading One
 ## Heading Two
@@ -96,7 +96,7 @@ This tag shows **bold** text.
 
 ---
 
-## HTML5 Tags Supported by GitHub-Flavored Markdown
+## HTML Tags Supported by GitHub-Flavored Markdown
 
 ### Tables
 
