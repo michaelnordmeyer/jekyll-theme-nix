@@ -5,6 +5,7 @@
       --font-family: sans-serif;
       --spacing: 1em;
       --line-height: 1.5;
+      --reduced-line-height: 1.2;
       /* Calculate integer pixel values depending on the font size (1rem = 16px) */
       --border-size:     calc(var(--font-size) *  1/var(--default-font-px));
       --x-script:        calc(var(--font-size) * 11/var(--default-font-px));
@@ -31,11 +32,11 @@
     pre { overflow-x: auto; }
     sub, sup { font-size: var(--x-script); line-height: 0; }
     hr { margin: calc(var(--spacing) * 2) 0; border: 0; border-top: var(--border-size) solid; }
-    h1, h2, h3, h4, h5, h6 { line-height: 1.2; text-wrap: balance; }
+    h1, h2, h3, h4, h5, h6 { line-height: var(--reduced-line-height); text-wrap: balance; }
     h1 { font-size: var(--big-font-size); }
-    body > header > nav > h1 { margin-bottom: var(--spacing); text-align: center; line-height: 1.2; }
+    body > header > nav > h1 { margin-bottom: var(--spacing); text-align: center; line-height: var(--reduced-line-height); }
     body > header a { text-decoration: none; color: currentcolor; }
-    body > header > nav > a { display: block; margin-block-start: calc(var(--spacing) * 2/3); margin-block-end: var(--spacing); text-align: center; font-size: var(--big-font-size); font-weight: bold; line-height: 1.2; }
+    body > header > nav > a { display: block; margin-block-start: calc(var(--spacing) * 2/3); margin-block-end: var(--spacing); text-align: center; font-size: var(--big-font-size); font-weight: bold; line-height: var(--reduced-line-height); }
     body > header a:visited { color: currentcolor; }
     body > main > section > ul { padding: 0; }
     body > main > section > ul > li { margin: calc(var(--spacing) * 1/2) 0; list-style-type: none; line-height: 1.25; }
