@@ -49,6 +49,10 @@ theme_settings:
   # redirect_page_to: "to" # default: "to"
   # redirect_page_text: "Click here if you are not being redirected." # default: "Click here if you are not being redirected.""
 
+## Plugin jekyll-redirect-from settings
+redirect_from:
+  json: false
+
 ## https://jekyllrb.com/docs/configuration/front-matter-defaults/
 # Only works for all posts, but can work for a subset of pages
 defaults:

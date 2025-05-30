@@ -56,14 +56,14 @@ end
 
 desc "Copies robots.txt to the server via scp"
 task :scprobots do
-  puts "==> Scp’ing #{domain} robots.txt to SSH host #{ssh_domain}"
+  puts "==> Scp'ing #{domain} robots.txt to SSH host #{ssh_domain}"
   sh "scp -P #{ssh_port} robots.txt #{ssh_user}@#{ssh_domain}:#{ssh_path}"
 end
 
 desc "Gzips the site via SSH"
 task :gzip do
   puts "==> Gzip'ing #{domain} via SSH..."
-  sh "ssh -p #{ssh_port} #{ssh_user}@#{ssh_domain} 'for file in $(find #{ssh_path} -type f -name \"*.html\" -o -name \"*.css\" -o -name \"*.css.map\" -o -name \"*.js\" -o -name \"*.svg\" -o -name \"*.xml\" -o -name \"*.xsl\" -o -name \"*.xslt\" -o -name \"*.json\" -o -name \"*.txt\"); do printf . && gzip -kf \"${file}\"; done; echo'"
+  sh "ssh -p #{ssh_port} #{ssh_user}@#{ssh_domain} 'for file in $(find #{ssh_path} -type f -size +1400c -regex \".*\\.\\(css\\(\\.map\\)\\?\\|html\\|js\\|json\\|svg\\|txt\\|xml\\|xsl\\(t\\)\\?\\)$\"); do printf . && gzip -kf \"${file}\" && brotli -kf -q 4 \"${file}\"; done; echo'"
 end
 
 desc "Gzips robots.txt via SSH"
@@ -101,19 +101,19 @@ task :gembuild do
   sh "gem build #{artefact}.gemspec"
 end
 
-desc "Installs the gem locally according to the gemspec’s version"
+desc "Installs the gem locally according to the gemspec's version"
 task :geminstall do
   puts "==> Installing #{artefact} gem locally..."
   sh "gem install --local #{artefact}-#{version}.gem"
 end
 
-desc "Uninstalls the gem according to the gemspec’s version"
+desc "Uninstalls the gem according to the gemspec's version"
 task :gemuninstall do
   puts "==> Uninstalling #{artefact} gem..."
   sh "gem uninstall #{artefact} --version #{version}"
 end
 
-desc "Pushes the gem to rubygems.org according to the gemspec’s version"
+desc "Pushes the gem to rubygems.org according to the gemspec's version"
 task :gempush do
   puts "==> Pushing #{artefact} to rubygems.org..."
   sh "gem push #{artefact}-#{version}.gem"
