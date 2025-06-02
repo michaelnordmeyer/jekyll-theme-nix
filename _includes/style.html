@@ -33,7 +33,7 @@
     sub, sup { font-size: var(--x-script); line-height: 0; }
     hr { margin: calc(var(--spacing) * 2) 0; border: 0; border-top: var(--border-size) solid; }
     h1, h2, h3, h4, h5, h6 { line-height: var(--reduced-line-height); text-wrap: balance; }
-    h1 { font-size: var(--big-font-size); }
+    h1 { margin-block: 0.67em; font-size: var(--big-font-size); }
     body > header > nav > h1 { margin-bottom: var(--spacing); text-align: center; line-height: var(--reduced-line-height); }
     body > header a { text-decoration: none; color: currentcolor; }
     body > header > nav > a { display: block; margin-block-start: calc(var(--spacing) * 2/3); margin-block-end: var(--spacing); text-align: center; font-size: var(--big-font-size); font-weight: bold; line-height: var(--reduced-line-height); }
@@ -43,7 +43,6 @@
     body > main > section > ul > li time { font-size: var(--small-font-size); }
     article > header { margin-bottom: calc(var(--spacing) * 2); }
     article > header > h1 { margin-bottom: 0; }
-    article h1 { font-size: var(--big-font-size); }
     header > time { display: block; color: color-mix(in srgb, currentcolor 50%, transparent); }
     hr:has(+div[role="doc-endnotes"]) { margin-bottom: var(--spacing); }
     div[role="doc-endnotes"] { margin-top: 0; font-size: var(--small-font-size); line-height: var(--line-height); }
