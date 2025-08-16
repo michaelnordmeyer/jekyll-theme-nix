@@ -57,7 +57,7 @@ end
 desc 'Copies robots.txt to the server via scp'
 task :scprobots do
   puts "==> Scp'ing #{domain} robots.txt to SSH host #{ssh_domain}"
-  sh "scp -P #{ssh_port} robots.txt #{ssh_user}@#{ssh_domain}:#{ssh_path}"
+  sh "scp -P #{ssh_port} robots.txt #{ssh_user}@#{ssh_domain}:#{ssh_path}/"
 end
 
 desc 'Compresses the site via SSH'
