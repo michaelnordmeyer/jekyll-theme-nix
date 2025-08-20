@@ -63,7 +63,7 @@ end
 desc 'Compresses the site via SSH'
 task :compress do
   puts "==> Compressing #{domain} via SSH..."
-  sh "ssh -p #{ssh_port} #{ssh_user}@#{ssh_domain} 'for file in $(find #{ssh_path} -type f -size +1400c -regex \".*\\.\\(css\\|map\\|html\\|js\\|json\\|svg\\|txt\\|xml\\|xsl\\|xslt\\)$\"); do printf . && gzip -kf \"${file}\" && brotli -kf -q 4 \"${file}\"; done; echo'"
+  sh "ssh -p #{ssh_port} #{ssh_user}@#{ssh_domain} 'for file in $(find #{ssh_path} -type f -size +1100c -regex \".*\\.\\(css\\|map\\|html\\|js\\|json\\|svg\\|txt\\|xml\\)$\"); do printf . && gzip -kf \"${file}\" && brotli -kf -q 4 \"${file}\"; done; echo'"
 end
 
 desc 'Compresses robots.txt via SSH'

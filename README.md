@@ -91,11 +91,3 @@ remote_theme: michaelnordmeyer/jekyll-theme-nix
 ```
 
 Make sure that this is the only `remote_theme:` in `_config.yml`, and that there are no other `theme:`.
-
-## Styled Atom Feed and Sitemap.xml
-
-Both are included in the demo. For a standard Jekyll installation, they work out-of-the-box if the files `feed.xslt.xml` and `sitemap.xsl` are copied to the site’s Jekyll directory.
-
-The XSLT files style the XML files. If a user selects the link to the feed, a styled version of the feed will be shown in the browser with an explainer of what web feeds are.
-
-Because feeds are generated once, they can only support one icon. The light variant was chosen for the feed.
