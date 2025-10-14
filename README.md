@@ -36,6 +36,10 @@ The default colors are the colors of the respective browsers, both in light and 
 
 `/assets/icons/icon.webp` is the favicon for the light mode, and there's also a dark variant `/assets/icons/icon-dark.webp` for dark mode. They will be used automatically or you can replace them by creating new ones in the same location.
 
+### Language Direction
+
+Support for right-to-left languages through `lang_direction: rtl` in `_config.yml` under the key `theme_settings`.
+
 ### Nix?
 
 “Nix” is the grammatically incorrect form of the German “nichts”, which in English means “nothing”. It's colloquially used to stress the nothingness.
