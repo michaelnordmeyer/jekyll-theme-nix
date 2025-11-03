@@ -50,6 +50,7 @@ task :rsync do
     --exclude=._* \
     --exclude=.git \
     --exclude=.gitignore \
+    --exclude=.github \
     _site/ \
     #{ssh_user}@#{ssh_domain}:#{ssh_path}"
 end
