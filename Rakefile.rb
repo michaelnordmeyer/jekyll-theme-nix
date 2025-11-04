@@ -8,7 +8,7 @@ domain = "#{artefact}.michaelnordmeyer.com"
 ssh_domain = 'michaelnordmeyer.com'
 ssh_port = 1111
 ssh_user = 'root'
-ssh_path = "/var/www/#{domain}/"
+ssh_path = "/srv/#{domain}/"
 
 task :default => ["build"]
 
