@@ -69,7 +69,7 @@ defaults:
       layout: page
       permalink: /:path/:basename
   - scope:
-      path: error
+      path: errors
       type: pages
     values:
       layout: error
