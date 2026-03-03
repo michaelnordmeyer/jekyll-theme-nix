@@ -24,7 +24,7 @@ If this theme feels to bloated to you, you can try [“Nixer”](https://github.
 - No pagination for the home page
 - A feed.xml containing an Atom feed, but no JSON or outdated RSS feeds
 - A sitemap.xml, because search engines should index us properly
-- No semantic info like Open Graph, Twitter cards, or JSON-LD, but inline Microdata
+- Semantic info like Open Graph and inline Microdata
 
 ## Minutiae
 
