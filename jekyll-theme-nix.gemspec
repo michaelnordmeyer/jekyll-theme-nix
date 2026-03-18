@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "jekyll-include-cache", "~> 0.2"
   spec.add_runtime_dependency "jekyll-redirect-from", "~> 0.16"
   spec.add_runtime_dependency "jekyll-sitemap", "~> 1.4"
-  # Fix for Jekyll 4.4.1 on Ruby 4.0.0
+  # Fix for Jekyll 4.4.1 on Ruby 4
   spec.add_runtime_dependency "logger"
 
   spec.add_development_dependency "bundler", ">= 2.4"
