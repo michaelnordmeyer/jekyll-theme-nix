@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+Rake::FileUtilsExt.verbose(false)
+
 ## Deployment settings
 gemspec = File.absolute_path(File.basename(File.dirname(__FILE__)) + ".gemspec")
 artefact = Gem::Specification::load(gemspec).name
