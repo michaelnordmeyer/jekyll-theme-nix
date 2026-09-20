@@ -17,13 +17,6 @@ ssh_path = "/srv/http/#{domain}/"
 
 task :default => ["build"]
 
-desc 'Builds the robots.txt'
-task :robots do
-  puts "==> Building #{domain} robots.txt..."
-  sh "printf 'Sitemap: https://#{domain}/sitemap.xml\\n\\n' > robots.txt"
-  sh "printf 'User-agent: *\\nDisallow: /\\n' >> robots.txt"
-end
-
 desc 'Beautifies kramdown output'
 task :beautify do
   puts "==> Beautifying #{domain} kramdown output..."
@@ -34,7 +27,6 @@ end
 
 desc 'Builds the site for deployment'
 task :build do
-  Rake::Task[:robots].invoke
   puts "==> Building #{domain}..."
   sh 'JEKYLL_ENV="production" bundle exec jekyll build'
   Rake::Task[:beautify].invoke
@@ -42,9 +34,15 @@ end
 
 desc 'Serves the site locally'
 task :serve do
-  Rake::Task[:robots].invoke
   puts "==> Building and serving #{domain} locally..."
   sh 'bundle exec jekyll serve'
+end
+
+desc 'Builds the robots.txt'
+task :robots do
+  puts "==> Building #{domain} robots.txt..."
+  sh "printf 'Sitemap: https://#{domain}/sitemap.xml\\n\\n' > robots.txt"
+  sh "printf 'User-agent: *\\nDisallow: /\\n' >> robots.txt"
 end
 
 desc 'Syncs the content of ./_site to the server via rsync'
@@ -84,9 +82,9 @@ desc 'Builds and deploys the site'
 task :deploy do
   puts "==> Building and deploying #{domain}..."
   Rake::Task[:build].invoke
+  Rake::Task[:robots].invoke
   Rake::Task[:rsync].invoke
   Rake::Task[:compress].invoke
-  Rake::Task[:clean].invoke
 end
 
 desc 'Builds and deploys the robots.txt'
