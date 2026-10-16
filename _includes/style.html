@@ -3,7 +3,7 @@
     --font-size: 1rem;
     /* Calculate integer pixel values depending on the font size (default: 1rem = 16px) */
     --border-size: calc(var(--font-size) * 1/16);
-    --x-script: calc(var(--font-size) * 11/16);
+    --font-size-script: calc(var(--font-size) * 11/16);
     --font-size-small: calc(var(--font-size) * 14/16);
     --font-size-big: calc(var(--font-size) * 32/16);
     --font-family: sans-serif;
@@ -63,7 +63,7 @@
   }
   sub,
   sup {
-    font-size: var(--x-script);
+    font-size: var(--font-size-script);
     line-height: 0;
   }
   hr {
