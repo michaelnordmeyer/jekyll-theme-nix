@@ -35,7 +35,7 @@ Another paragraph with more text to show, how the paragraph spacing is done. Not
 - List item two
 - List item three
 
-#### Ordered List (Nested)
+#### Ordered Lists (Nested)
 
 1. List item one
    1. List item one
