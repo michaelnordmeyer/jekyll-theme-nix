@@ -39,7 +39,7 @@ task :serve do
 end
 
 desc 'Builds the robots.txt'
-task :robots do
+task :robotstxt do
   puts "==> Building #{domain} robots.txt..."
   sh "printf 'Sitemap: https://#{domain}/sitemap.xml\\n\\n' > robots.txt"
   sh "printf 'User-agent: *\\nDisallow: /\\n' >> robots.txt"
@@ -61,7 +61,7 @@ task :rsync do
 end
 
 desc 'Copies robots.txt to the server via scp'
-task :scprobots do
+task :scprobotstxt do
   puts "==> Scp'ing #{domain} robots.txt to SSH host #{ssh_host}"
   sh "scp -P #{ssh_port} robots.txt #{ssh_user}@#{ssh_host}:#{ssh_path}"
 end
@@ -74,7 +74,7 @@ task :compress do
 end
 
 desc 'Compresses robots.txt via SSH'
-task :compressrobots do
+task :compressrobotstxt do
   puts "==> Compressing #{domain} robots.txt via SSH..."
   # sh "ssh -p #{ssh_port} #{ssh_user}@#{ssh_host} 'gzip -kf -9 #{ssh_path}robots.txt && brotli -kf -q 9 #{ssh_path}robots.txt'"
   sh "ssh -p #{ssh_port} #{ssh_user}@#{ssh_host} 'gzip -kf -9 #{ssh_path}robots.txt'"
@@ -84,17 +84,17 @@ desc 'Builds and deploys the site'
 task :deploy do
   puts "==> Building and deploying #{domain}..."
   Rake::Task[:build].invoke
-  Rake::Task[:robots].invoke
+  Rake::Task[:robotstxt].invoke
   Rake::Task[:rsync].invoke
   Rake::Task[:compress].invoke
 end
 
 desc 'Builds and deploys the robots.txt'
-task :deployrobots do
+task :deployrobotstxt do
   puts "==> Building and deploying #{domain} robots.txt..."
-  Rake::Task[:robots].invoke
-  Rake::Task[:scprobots].invoke
-  Rake::Task[:compressrobots].invoke
+  Rake::Task[:robotstxt].invoke
+  Rake::Task[:scprobotstxt].invoke
+  Rake::Task[:compressrobotstxt].invoke
 end
 
 desc 'Cleans the source dir'
