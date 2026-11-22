@@ -3,8 +3,8 @@ list_title: Posts
 permalink: /
 layout: home
 ---
-Welcome, visitor. Check out the minimalist Jekyll theme “Nix” here or [on GitHub](https://github.com/michaelnordmeyer/jekyll-theme-nix).
+“Nix” is a very minimalistic, but functional theme, that only uses default colors and tag selectors, making it a classless CSS design.
 
-There’s no menu, but pages can be [manually linked here](/about).
+There’s no menu, but pages can be manually linked in this introduction, like [this about page](/about).
 
 The feature set is explained in the [readme on GitHub](https://github.com/michaelnordmeyer/jekyll-theme-nix).

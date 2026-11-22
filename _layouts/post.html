@@ -10,7 +10,7 @@ layout: default
         <time itemprop="datePublished" datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: date_format }}</time>
       </header>
       <div itemprop="articleBody">
-{{ content }}
+{{ content | smartify }}
       </div>
     </article>
   </main>
